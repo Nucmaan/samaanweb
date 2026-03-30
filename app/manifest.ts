@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Samaan Suites – Luxury Serviced Hotel in Mogadishu, Somalia",
+    name: "Samaan Suites – Luxury Hotel in Mogadishu Airport Area",
     short_name: "Samaan Suites",
     description:
-      "Brand-new luxury serviced hotel near Mogadishu Airport. 60 suites, conference venue, restaurant, gym, masjid & 24/7 security. Opening soon.",
+      "Modern luxury hotel near Mogadishu Airport. 60 suites, conference venue, restaurant, gym, masjid & 24/7 security. The best hotel in Mogadishu.",
     start_url: "/",
     display: "standalone",
     background_color: "#0b1120",

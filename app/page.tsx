@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Samaan Suites | Best Luxury Serviced Hotel in Mogadishu, Somalia – Opening Soon",
+  title: "Samaan Suites – Luxury Hotel in Mogadishu Airport Area",
   description:
-    "Samaan Suites – brand-new luxury serviced hotel near Mogadishu Airport. 60 one-bedroom & two-bedroom suites, 11th-floor conference auditorium, restaurant, gym, masjid, 24/7 CCTV security. Best hotel in Mogadishu for business travelers, NGOs, diplomats & long-stay guests. Opening soon.",
-  alternates: { canonical: "https://samaansuites.com" },
+    "Samaan Suites is a modern luxury hotel in Mogadishu located near the airport. Enjoy comfortable rooms, premium service, and the best stay in Somalia.",
+  alternates: { canonical: "https://www.samaansuites.com" },
 };
 
-const SITE_URL = "https://samaansuites.com";
+const SITE_URL = "https://www.samaansuites.com";
 
 const ALL_FAQS = [
   {
@@ -70,7 +69,7 @@ function JsonLd() {
     description:
       "Samaan Suites is a newly developed luxury serviced hotel near Mogadishu Airport, Somalia. Featuring 60 fully serviced one-bedroom and two-bedroom suites across 10 residential floors, a ground-floor restaurant, gym, masjid, 24/7 CCTV security, and an 11th-floor auditorium and conference venue for events, workshops, and corporate meetings. The best hotel in Mogadishu for business travelers, NGOs, diplomats, and long-stay guests.",
     url: SITE_URL,
-    telephone: "",
+    telephone: "+252614232739",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Mogadishu Airport Area",
@@ -126,6 +125,7 @@ function JsonLd() {
     logo: `${SITE_URL}/opengraph-image`,
     description:
       "Samaan Suites is a luxury serviced hotel in Mogadishu, Somalia offering 60 suites, conference facilities, and full hotel amenities near Mogadishu Airport.",
+    telephone: "+252614232739",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Mogadishu Airport Area",
@@ -177,6 +177,7 @@ function JsonLd() {
     description:
       "Luxury serviced hotel near Mogadishu Airport offering 60 suites, a conference auditorium, restaurant, gym, masjid, and 24/7 security. The best hotel for business travelers, NGOs, and long-stay guests in Mogadishu, Somalia.",
     url: SITE_URL,
+    telephone: "+252614232739",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Mogadishu Airport Area",
@@ -315,7 +316,7 @@ export default function Home() {
     <>
       <JsonLd />
 
-      <div className="flex min-h-screen flex-col">
+      <div className="flex flex-col">
         {/* Breadcrumb (hidden visually, crawlable) */}
         <nav aria-label="Breadcrumb" className="sr-only">
           <ol>
@@ -340,7 +341,7 @@ export default function Home() {
             <h1 className="animate-fade-in-up-delay-1 mb-2 text-5xl font-bold tracking-wide text-foreground sm:text-6xl md:text-7xl">
               Samaan Suites
               <span className="mt-2 block text-lg tracking-[0.35em] text-gold font-light sm:text-xl">
-                Best Luxury Serviced Hotel in Mogadishu
+                Hotel in Mogadishu
               </span>
             </h1>
 
@@ -358,9 +359,14 @@ export default function Home() {
               diplomats, and long-stay guests in Somalia.
             </p>
 
-            <address className="animate-fade-in-up-delay-4 not-italic inline-flex items-center gap-2 text-foreground/50">
-              <LocationIcon />
-              <span className="text-sm tracking-wide">Mogadishu Airport Area, Banaadir, Somalia</span>
+            <address className="animate-fade-in-up-delay-4 not-italic flex flex-col items-center gap-2 text-foreground/50">
+              <span className="inline-flex items-center gap-2">
+                <LocationIcon />
+                <span className="text-sm tracking-wide">Mogadishu Airport Area, Mogadishu, Somalia</span>
+              </span>
+              <a href="tel:+252614232739" className="text-sm tracking-wide text-gold/70 transition-colors hover:text-gold">
+                +252 61 4232739
+              </a>
             </address>
           </div>
         </header>
@@ -376,11 +382,12 @@ export default function Home() {
           <div className="mb-16 text-center">
             <p className="mb-3 text-sm font-medium tracking-[0.2em] text-gold/70">HOTEL AMENITIES &amp; FEATURES</p>
             <h2 id="features-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
-              60 Luxury Serviced Suites Across 10 Floors
+              Luxury Rooms in Mogadishu
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-foreground/50">
-              One-bedroom and two-bedroom serviced apartments in Mogadishu designed for comfort, privacy,
-              and extended stays — supported by full hotel amenities, conference facilities, and 24/7 security.
+              Samaan Suites offers 60 luxury serviced suites across 10 floors — one-bedroom and two-bedroom apartments
+              designed for comfort, privacy, and extended stays in Mogadishu. Every room comes with full hotel amenities,
+              conference access, and 24/7 security.
             </p>
           </div>
 
@@ -501,9 +508,9 @@ export default function Home() {
           <div className="mx-auto max-w-4xl px-6 py-24">
             <div className="mb-12 text-center">
               <p className="mb-3 text-sm font-medium tracking-[0.2em] text-gold/70">LOCATION &amp; NEIGHBORHOOD</p>
-              <h2 id="location-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
-                Hotel Near Mogadishu Airport — Samaan Suites Location
-              </h2>
+            <h2 id="location-heading" className="text-3xl font-bold text-foreground sm:text-4xl">
+              Best Hotel Near Mogadishu Airport
+            </h2>
             </div>
             <div className="rounded-2xl border border-gold/10 bg-navy-light/40 p-8 sm:p-10">
               <div className="flex items-start gap-4 mb-6">
@@ -609,30 +616,35 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="border-t border-gold/10 px-6 py-10 text-center">
-          <div className="mb-4 flex items-center justify-center gap-3" aria-hidden="true">
-            <span className="h-px w-8 bg-gold/20" />
-            <DiamondIcon className="h-2.5 w-2.5 text-gold/30" />
-            <span className="h-px w-8 bg-gold/20" />
+        {/* Affordable and Comfortable Stay */}
+        <section aria-labelledby="affordable-heading" className="border-t border-gold/10">
+          <div className="mx-auto max-w-4xl px-6 py-24">
+            <p className="mb-3 text-center text-sm font-medium tracking-[0.2em] text-gold/70">VALUE &amp; COMFORT</p>
+            <h2 id="affordable-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">
+              Affordable and Comfortable Stay in Mogadishu
+            </h2>
+            <div className="space-y-5 text-foreground/60 leading-relaxed">
+              <p>
+                Finding a hotel in Mogadishu that combines <strong className="text-foreground/80">quality, comfort, and value</strong> has
+                never been easier. Samaan Suites Mogadishu delivers an exceptional hospitality experience without compromising on service
+                or amenities. Every suite is fully furnished and serviced, offering guests all the comforts of a luxury apartment at
+                competitive rates.
+              </p>
+              <p>
+                Whether you need a <strong className="text-foreground/80">short-term stay</strong> for a business trip or a{" "}
+                <strong className="text-foreground/80">long-term accommodation</strong> for an extended assignment, Samaan Suites provides
+                flexible options tailored to your needs. Our all-inclusive amenities — restaurant, gym, masjid, high-speed elevators,
+                laundry, and 24/7 security — mean you never have to look elsewhere during your stay in Mogadishu.
+              </p>
+              <p>
+                As an <strong className="text-foreground/80">airport hotel in Somalia</strong>, Samaan Suites is perfectly positioned
+                for travelers arriving at or departing from Aden Abdulle International Airport. Enjoy the convenience of a premium hotel
+                near Mogadishu Airport combined with the affordability and warmth of Somali hospitality. Samaan Suites is where comfort
+                meets convenience in Mogadishu.
+              </p>
+            </div>
           </div>
-          <p className="text-sm font-medium tracking-wider text-foreground/40">SAMAAN SUITES</p>
-          <p className="mt-1 text-xs text-foreground/25">
-            Best Luxury Serviced Hotel &middot; Mogadishu Airport Area, Banaadir, Somalia &middot; Opening Soon
-          </p>
-          <nav aria-label="Footer links" className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-foreground/20">
-            <span>Hotel in Mogadishu</span>
-            <span aria-hidden="true">&middot;</span>
-            <span>Serviced Apartments Mogadishu</span>
-            <span aria-hidden="true">&middot;</span>
-            <span>Conference Venue Mogadishu</span>
-            <span aria-hidden="true">&middot;</span>
-            <span>NGO Accommodation Somalia</span>
-          </nav>
-          <p className="mt-4 text-xs text-foreground/15">
-            &copy; {new Date().getFullYear()} Samaan Suites. All rights reserved.
-          </p>
-        </footer>
+        </section>
       </div>
     </>
   );
