@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Navigation } from "@/components/navigation";
+import { ThemeProvider } from "@/components/theme-provider";
 import Link from "next/link";
 import "./globals.css";
 
@@ -280,6 +281,7 @@ export default function RootLayout({
       lang="en"
       dir="ltr"
       className={`${inter.variable} ${playfair.variable} h-full`}
+      suppressHydrationWarning
     >
       <head>
         <meta name="theme-color" content="#F9F8F6" />
@@ -303,9 +305,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className="min-h-full flex flex-col antialiased">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        <ThemeProvider>
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   );

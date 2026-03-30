@@ -40,6 +40,40 @@
   --sidebar-ring: #967B4F;
 }
 
+.dark {
+  --background: #141414;
+  --foreground: #E8E5E0;
+  --accent: #B09570;
+  --accent-light: #C8AE8A;
+  --accent-dark: #967B4F;
+  --muted: #2A2A2A;
+  --muted-foreground: #9A958E;
+  --card: #1C1C1C;
+  --card-foreground: #E8E5E0;
+  --popover: #1C1C1C;
+  --popover-foreground: #E8E5E0;
+  --primary: #E8E5E0;
+  --primary-foreground: #141414;
+  --secondary: #1E1E1E;
+  --secondary-foreground: #E8E5E0;
+  --border: #2E2B27;
+  --input: #2E2B27;
+  --ring: #B09570;
+  --sidebar: #141414;
+  --sidebar-foreground: #E8E5E0;
+  --sidebar-primary: #E8E5E0;
+  --sidebar-primary-foreground: #141414;
+  --sidebar-accent: #1E1E1E;
+  --sidebar-accent-foreground: #E8E5E0;
+  --sidebar-border: #2E2B27;
+  --sidebar-ring: #B09570;
+}
+
+.dark ::selection {
+  background: rgba(176, 149, 112, 0.3);
+  color: #E8E5E0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

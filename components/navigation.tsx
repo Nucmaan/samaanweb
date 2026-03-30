@@ -3,7 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const PRIMARY_LINKS = [
   { href: "/", label: "Home" },
@@ -26,11 +28,32 @@ function ChevronIcon({ className }: { className?: string }) {
   );
 }
 
+function SunIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z" />
+    </svg>
+  );
+}
+
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const moreRef = useRef<HTMLLIElement>(null);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -132,7 +155,22 @@ export function Navigation() {
           </li>
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          {mounted && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className={`rounded-full transition-colors duration-500 ${
+                scrolled
+                  ? "text-foreground/60 hover:bg-muted hover:text-foreground"
+                  : "text-white/70 hover:bg-white/10 hover:text-white"
+              }`}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            >
+              {theme === "dark" ? <SunIcon className="size-[18px]" /> : <MoonIcon className="size-[18px]" />}
+            </Button>
+          )}
           <Link
             href="/contact"
             className={`inline-flex items-center rounded-none border px-6 py-2.5 text-[12px] font-medium uppercase tracking-[0.2em] transition-all duration-500 ${
@@ -180,14 +218,25 @@ export function Navigation() {
                   </Link>
                 </li>
               ))}
-              <li className="mt-4">
+              <li className="mt-4 flex items-center gap-3">
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="block border border-accent bg-accent py-3 text-center text-xs font-medium uppercase tracking-[0.2em] text-white"
+                  className="block flex-1 border border-accent bg-accent py-3 text-center text-xs font-medium uppercase tracking-[0.2em] text-white"
                 >
                   Reserve Now
                 </Link>
+                {mounted && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="shrink-0 rounded-full"
+                    aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                  >
+                    {theme === "dark" ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
+                  </Button>
+                )}
               </li>
             </ul>
           </motion.div>
