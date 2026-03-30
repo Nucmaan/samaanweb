@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
+import { Navigation } from "@/components/navigation";
 import Link from "next/link";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const SITE_URL = "https://www.samaansuites.com";
@@ -129,8 +132,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Samaan Suites",
-    title:
-      "Samaan Suites – Luxury Hotel in Mogadishu Airport Area",
+    title: "Samaan Suites – Luxury Hotel in Mogadishu Airport Area",
     description:
       "Samaan Suites is a modern luxury hotel in Mogadishu located near the airport. 60 suites across 10 floors, conference venue, restaurant, gym, masjid & 24/7 CCTV security. The best hotel for business travelers, NGOs & long-stay guests in Mogadishu.",
     images: [
@@ -145,8 +147,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Samaan Suites – Luxury Hotel in Mogadishu Airport Area",
+    title: "Samaan Suites – Luxury Hotel in Mogadishu Airport Area",
     description:
       "60 luxury serviced suites near Mogadishu Airport. Conference venue, restaurant, gym, masjid & 24/7 security. The best new hotel in Mogadishu, Somalia.",
     images: ["/opengraph-image"],
@@ -178,56 +179,38 @@ export const metadata: Metadata = {
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/rooms", label: "Rooms" },
+  { href: "/rooms", label: "Suites" },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Journal" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
-function SiteNavigation() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-gold/20 bg-background/95 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Main navigation">
-        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
-          <img src="/logo.png" alt="Samaan Suites logo" width={40} height={40} className="h-10 w-10 rounded" />
-          <span className="text-lg font-bold tracking-[0.15em] text-foreground">SAMAAN SUITES</span>
-        </Link>
-        <ul className="flex flex-wrap items-center gap-1 sm:gap-5">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="rounded-lg px-3 py-2 text-xs font-medium tracking-wide text-foreground/60 transition-colors hover:bg-gold/5 hover:text-gold sm:text-sm"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </header>
-  );
-}
-
 function SiteFooter() {
   return (
-    <footer className="border-t border-gold/20 bg-navy-light/30">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <p className="text-lg font-bold tracking-[0.15em] text-foreground">SAMAAN SUITES</p>
-            <p className="mt-3 text-sm leading-relaxed text-foreground/50">
-              Samaan Suites is a modern luxury hotel in Mogadishu located near the airport.
-              The best hotel in Mogadishu for business travelers, NGOs, diplomats, and long-stay guests.
+    <footer className="border-t border-border bg-secondary text-foreground">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <p className="font-heading text-2xl tracking-wide text-foreground">
+              Samaan Suites
+            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              A sanctuary of refined luxury in the heart of Mogadishu.
+              Where timeless elegance meets modern comfort near the airport.
             </p>
           </div>
 
           <div>
-            <p className="mb-4 text-sm font-semibold tracking-[0.15em] text-gold/70">QUICK LINKS</p>
-            <ul className="space-y-2.5">
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
+              Explore
+            </p>
+            <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-foreground/50 transition-colors hover:text-gold">
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-accent"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -236,9 +219,11 @@ function SiteFooter() {
           </div>
 
           <div itemScope itemType="https://schema.org/Hotel">
-            <p className="mb-4 text-sm font-semibold tracking-[0.15em] text-gold/70">CONTACT US</p>
-            <address className="space-y-3 text-sm not-italic text-foreground/50">
-              <p className="font-semibold text-foreground/70" itemProp="name">Samaan Suites</p>
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
+              Contact
+            </p>
+            <address className="space-y-3 text-sm not-italic text-muted-foreground">
+              <p className="text-foreground" itemProp="name">Samaan Suites</p>
               <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                 <p>
                   <span itemProp="streetAddress">Mogadishu Airport Area</span><br />
@@ -247,8 +232,11 @@ function SiteFooter() {
                 </p>
               </div>
               <p>
-                Phone:{" "}
-                <a href="tel:+252614232739" className="transition-colors hover:text-gold" itemProp="telephone">
+                <a
+                  href="tel:+252614232739"
+                  className="transition-colors hover:text-accent"
+                  itemProp="telephone"
+                >
                   +252 61 4232739
                 </a>
               </p>
@@ -256,22 +244,24 @@ function SiteFooter() {
           </div>
 
           <div>
-            <p className="mb-4 text-sm font-semibold tracking-[0.15em] text-gold/70">OUR SERVICES</p>
-            <ul className="space-y-2.5 text-sm text-foreground/50">
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
+              Services
+            </p>
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li>Hotel in Mogadishu</li>
               <li>Serviced Apartments</li>
-              <li>Conference Venue Mogadishu</li>
-              <li>NGO Accommodation Somalia</li>
+              <li>Conference Venue</li>
+              <li>NGO Accommodation</li>
               <li>Airport Hotel Somalia</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-2 border-t border-gold/20 pt-8">
-          <p className="text-center text-xs text-foreground/30">
-            Samaan Suites &middot; Luxury Hotel in Mogadishu Airport Area &middot; Mogadishu, Somalia &middot; +252 61 4232739
+        <div className="mt-16 flex flex-col items-center gap-3 border-t border-border pt-10">
+          <p className="text-center text-xs tracking-widest text-muted-foreground/50">
+            SAMAAN SUITES &middot; MOGADISHU AIRPORT AREA &middot; SOMALIA &middot; +252 61 4232739
           </p>
-          <p className="text-xs text-foreground/15">
+          <p className="text-[11px] text-muted-foreground/40">
             &copy; {new Date().getFullYear()} Samaan Suites. All rights reserved.
           </p>
         </div>
@@ -289,15 +279,15 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfair.variable} h-full`}
     >
       <head>
-        <meta name="theme-color" content="#F5F0E6" />
-        <meta name="theme-color" content="#2D4A54" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#F5F0E6" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#F9F8F6" />
+        <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#F9F8F6" media="(prefers-color-scheme: light)" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Samaan Suites" />
 
         <meta name="geo.region" content="SO-BN" />
@@ -312,8 +302,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
-      <body className="min-h-full flex flex-col">
-        <SiteNavigation />
+      <body className="min-h-full flex flex-col antialiased">
+        <Navigation />
         <main className="flex-1">{children}</main>
         <SiteFooter />
       </body>
