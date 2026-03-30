@@ -186,10 +186,11 @@ const NAV_LINKS = [
 
 function SiteNavigation() {
   return (
-    <header className="sticky top-0 z-50 border-b border-gold/10 bg-background/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-gold/20 bg-background/95 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Main navigation">
-        <Link href="/" className="text-lg font-bold tracking-[0.15em] text-foreground transition-colors hover:text-gold">
-          SAMAAN SUITES
+        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
+          <img src="/logo.png" alt="Samaan Suites logo" width={40} height={40} className="h-10 w-10 rounded" />
+          <span className="text-lg font-bold tracking-[0.15em] text-foreground">SAMAAN SUITES</span>
         </Link>
         <ul className="flex flex-wrap items-center gap-1 sm:gap-5">
           {NAV_LINKS.map((link) => (
@@ -210,7 +211,7 @@ function SiteNavigation() {
 
 function SiteFooter() {
   return (
-    <footer className="border-t border-gold/10 bg-navy-light/30">
+    <footer className="border-t border-gold/20 bg-navy-light/30">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -266,7 +267,7 @@ function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-2 border-t border-gold/10 pt-8">
+        <div className="mt-12 flex flex-col items-center gap-2 border-t border-gold/20 pt-8">
           <p className="text-center text-xs text-foreground/30">
             Samaan Suites &middot; Luxury Hotel in Mogadishu Airport Area &middot; Mogadishu, Somalia &middot; +252 61 4232739
           </p>
@@ -291,9 +292,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <meta name="theme-color" content="#0b1120" />
-        <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#f0ead6" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#F5F0E6" />
+        <meta name="theme-color" content="#2D4A54" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#F5F0E6" media="(prefers-color-scheme: light)" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

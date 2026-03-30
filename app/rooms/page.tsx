@@ -85,7 +85,7 @@ export default function RoomsPage() {
           </ol>
         </nav>
 
-        <header className="border-b border-gold/10 px-6 py-20 text-center">
+        <header className="border-b border-gold/20 px-6 py-20 text-center">
           <p className="mb-3 text-sm font-medium tracking-[0.2em] text-gold/70">ACCOMMODATIONS</p>
           <h1 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
             Rooms at Samaan Suites Mogadishu
@@ -100,8 +100,8 @@ export default function RoomsPage() {
         <section aria-labelledby="suite-types-heading" className="mx-auto w-full max-w-5xl px-6 py-24">
           <h2 id="suite-types-heading" className="sr-only">Suite Types at Samaan Suites</h2>
           <div className="grid gap-8 md:grid-cols-2">
-            <article className="rounded-2xl border border-gold/10 bg-navy-light/60 p-8 transition-all hover:border-gold/25">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10 text-gold">
+            <article className="rounded-2xl border border-gold/20 bg-navy-light/60 p-8 transition-all hover:border-gold/25">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gold/15 text-gold">
                 <BedIcon />
               </div>
               <h3 className="mb-2 text-2xl font-bold text-foreground">One-Bedroom Suite</h3>
@@ -113,8 +113,8 @@ export default function RoomsPage() {
               </p>
             </article>
 
-            <article className="rounded-2xl border border-gold/10 bg-navy-light/60 p-8 transition-all hover:border-gold/25">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10 text-gold">
+            <article className="rounded-2xl border border-gold/20 bg-navy-light/60 p-8 transition-all hover:border-gold/25">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gold/15 text-gold">
                 <UsersIcon />
               </div>
               <h3 className="mb-2 text-2xl font-bold text-foreground">Two-Bedroom Suite</h3>
@@ -129,7 +129,7 @@ export default function RoomsPage() {
         </section>
 
         {/* Room Amenities */}
-        <section aria-labelledby="amenities-heading" className="border-t border-gold/10 bg-navy-light/20">
+        <section aria-labelledby="amenities-heading" className="border-t border-gold/20 bg-navy-light/20">
           <div className="mx-auto max-w-5xl px-6 py-24">
             <p className="mb-3 text-center text-sm font-medium tracking-[0.2em] text-gold/70">IN-ROOM AMENITIES</p>
             <h2 id="amenities-heading" className="mb-12 text-center text-3xl font-bold text-foreground sm:text-4xl">
@@ -137,7 +137,7 @@ export default function RoomsPage() {
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {ROOM_AMENITIES.map((amenity) => (
-                <div key={amenity} className="flex items-center gap-3 rounded-xl border border-gold/10 bg-navy-light/40 px-5 py-4">
+                <div key={amenity} className="flex items-center gap-3 rounded-xl border border-gold/20 bg-navy-light/40 px-5 py-4">
                   <CheckCircleIcon />
                   <span className="text-sm text-foreground/70">{amenity}</span>
                 </div>
@@ -147,7 +147,7 @@ export default function RoomsPage() {
         </section>
 
         {/* Keyword Content */}
-        <section aria-labelledby="rooms-info-heading" className="border-t border-gold/10">
+        <section aria-labelledby="rooms-info-heading" className="border-t border-gold/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <h2 id="rooms-info-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">
               Luxury Hotel Rooms in Mogadishu

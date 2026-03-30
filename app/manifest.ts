@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Modern luxury hotel near Mogadishu Airport. 60 suites, conference venue, restaurant, gym, masjid & 24/7 security. The best hotel in Mogadishu.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0b1120",
-    theme_color: "#0b1120",
+    background_color: "#F5F0E6",
+    theme_color: "#2D4A54",
     icons: [
       {
         src: "/icon-192.png",

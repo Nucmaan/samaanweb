@@ -209,10 +209,10 @@ export default function BlogPage() {
             </p>
           </div>
 
-          <footer className="mt-16 border-t border-gold/10 pt-8">
+          <footer className="mt-16 border-t border-gold/20 pt-8">
             <div className="flex flex-wrap gap-3">
               {["Samaan Suites", "Hotel Mogadishu", "Best Hotel Mogadishu", "Airport Hotel Somalia", "NGO Accommodation Mogadishu"].map((tag) => (
-                <span key={tag} className="rounded-full border border-gold/15 bg-navy-light/60 px-4 py-1.5 text-xs text-foreground/50">
+                <span key={tag} className="rounded-full border border-gold/25 bg-navy-light/60 px-4 py-1.5 text-xs text-foreground/50">
                   {tag}
                 </span>
               ))}

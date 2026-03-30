@@ -99,7 +99,7 @@ export default function ContactPage() {
           </ol>
         </nav>
 
-        <header className="border-b border-gold/10 px-6 py-20 text-center">
+        <header className="border-b border-gold/20 px-6 py-20 text-center">
           <p className="mb-3 text-sm font-medium tracking-[0.2em] text-gold/70">GET IN TOUCH</p>
           <h1 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
             Contact Samaan Suites
@@ -114,8 +114,8 @@ export default function ContactPage() {
         <section aria-labelledby="contact-info-heading" className="mx-auto w-full max-w-5xl px-6 py-24">
           <h2 id="contact-info-heading" className="sr-only">Contact Information</h2>
           <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-gold/10 bg-navy-light/60 p-8 text-center">
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10 text-gold">
+            <div className="rounded-2xl border border-gold/20 bg-navy-light/60 p-8 text-center">
+              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gold/15 text-gold">
                 <PhoneIcon />
               </div>
               <h3 className="mb-2 text-lg font-semibold text-foreground">Call Us</h3>
@@ -128,8 +128,8 @@ export default function ContactPage() {
               <p className="mt-2 text-sm text-foreground/50">Available 24/7 for reservations and enquiries</p>
             </div>
 
-            <div className="rounded-2xl border border-gold/10 bg-navy-light/60 p-8 text-center">
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10 text-gold">
+            <div className="rounded-2xl border border-gold/20 bg-navy-light/60 p-8 text-center">
+              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gold/15 text-gold">
                 <MapPinIcon />
               </div>
               <h3 className="mb-2 text-lg font-semibold text-foreground">Visit Us</h3>
@@ -140,8 +140,8 @@ export default function ContactPage() {
               </address>
             </div>
 
-            <div className="rounded-2xl border border-gold/10 bg-navy-light/60 p-8 text-center">
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gold/10 text-gold">
+            <div className="rounded-2xl border border-gold/20 bg-navy-light/60 p-8 text-center">
+              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gold/15 text-gold">
                 <ClockIcon />
               </div>
               <h3 className="mb-2 text-lg font-semibold text-foreground">Front Desk Hours</h3>
@@ -154,15 +154,15 @@ export default function ContactPage() {
         </section>
 
         {/* Google Map Embed */}
-        <section aria-labelledby="map-heading" className="border-t border-gold/10 bg-navy-light/20">
+        <section aria-labelledby="map-heading" className="border-t border-gold/20 bg-navy-light/20">
           <div className="mx-auto max-w-5xl px-6 py-24">
             <h2 id="map-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">
               Find Samaan Suites on the Map
             </h2>
-            <div className="overflow-hidden rounded-2xl border border-gold/10">
+            <div className="overflow-hidden rounded-2xl border border-gold/20">
               <iframe
                 title="Samaan Suites Mogadishu location on Google Maps"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0!2d45.3182!3d2.0469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwMDInNDkuMCJOIDQ1wrAxOScwNS41IkU!5e0!3m2!1sen!2s!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.317323538119!2d45.305231875216776!3d2.028805097952938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3d58410056f1e2a5%3A0xd863c025990adcb!2sSamaan%20Suites!5e0!3m2!1sen!2sso!4v1774857450463!5m2!1sen!2sso"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
@@ -180,7 +180,7 @@ export default function ContactPage() {
         </section>
 
         {/* SEO Content */}
-        <section aria-labelledby="contact-seo-heading" className="border-t border-gold/10">
+        <section aria-labelledby="contact-seo-heading" className="border-t border-gold/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <h2 id="contact-seo-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">
               How to Reach Samaan Suites in Mogadishu

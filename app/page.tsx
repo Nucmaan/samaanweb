@@ -112,7 +112,7 @@ function JsonLd() {
       opens: "00:00",
       closes: "23:59",
     },
-    image: `${SITE_URL}/opengraph-image`,
+    image: [`${SITE_URL}/logo.png`, `${SITE_URL}/opengraph-image`],
     priceRange: "$$$",
     sameAs: [],
   };
@@ -122,7 +122,7 @@ function JsonLd() {
     "@type": "Organization",
     name: "Samaan Suites",
     url: SITE_URL,
-    logo: `${SITE_URL}/opengraph-image`,
+    logo: `${SITE_URL}/logo.png`,
     description:
       "Samaan Suites is a luxury serviced hotel in Mogadishu, Somalia offering 60 suites, conference facilities, and full hotel amenities near Mogadishu Airport.",
     telephone: "+252614232739",
@@ -235,8 +235,8 @@ function DiamondIcon({ className }: { className?: string }) {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <article className="group relative rounded-2xl border border-gold/10 bg-navy-light/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30 hover:bg-navy-light">
-      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-gold transition-colors group-hover:bg-gold/20" aria-hidden="true">
+    <article className="group relative rounded-2xl border border-gold/20 bg-navy-light/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/30 hover:bg-navy-light">
+      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/15 text-gold transition-colors group-hover:bg-gold/25" aria-hidden="true">
         {icon}
       </div>
       <h3 className="mb-2 text-lg font-semibold text-foreground">{title}</h3>
@@ -327,8 +327,8 @@ export default function Home() {
         {/* Hero */}
         <header className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-6 py-32 text-center">
           <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-            <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/5 blur-[120px]" />
-            <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-gold/3 blur-[100px]" />
+            <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-[120px]" />
+            <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-gold/10 blur-[100px]" />
           </div>
 
           <div className="relative z-10 max-w-3xl">
@@ -345,7 +345,7 @@ export default function Home() {
               </span>
             </h1>
 
-            <div className="animate-fade-in-up-delay-2 mt-8 mb-8 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-6 py-2.5 backdrop-blur-sm">
+            <div className="animate-fade-in-up-delay-2 mt-8 mb-8 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-6 py-2.5 backdrop-blur-sm">
               <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
@@ -426,7 +426,7 @@ export default function Home() {
         </section>
 
         {/* Key Statistics */}
-        <section aria-labelledby="stats-heading" className="border-y border-gold/10 bg-navy-light/40">
+        <section aria-labelledby="stats-heading" className="border-y border-gold/20 bg-navy-light/40">
           <h2 id="stats-heading" className="sr-only">Samaan Suites Hotel Key Statistics — Rooms, Floors, Facilities</h2>
           <div className="mx-auto grid max-w-5xl grid-cols-2 gap-px sm:grid-cols-4">
             {[
@@ -465,7 +465,7 @@ export default function Home() {
               <span
                 key={item}
                 role="listitem"
-                className="rounded-full border border-gold/15 bg-navy-light/60 px-5 py-2.5 text-sm text-foreground/70 transition-colors hover:border-gold/30 hover:text-foreground"
+                className="rounded-full border border-gold/25 bg-navy-light/60 px-5 py-2.5 text-sm text-foreground/70 transition-colors hover:border-gold/30 hover:text-foreground"
               >
                 {item}
               </span>
@@ -474,7 +474,7 @@ export default function Home() {
         </section>
 
         {/* Why Choose Samaan Suites */}
-        <section aria-labelledby="why-choose-heading" className="border-t border-gold/10 bg-navy-light/20">
+        <section aria-labelledby="why-choose-heading" className="border-t border-gold/20 bg-navy-light/20">
           <div className="mx-auto max-w-5xl px-6 py-24">
             <p className="mb-3 text-center text-sm font-medium tracking-[0.2em] text-gold/70">WHY SAMAAN SUITES</p>
             <h2 id="why-choose-heading" className="mb-12 text-center text-3xl font-bold text-foreground sm:text-4xl">
@@ -504,7 +504,7 @@ export default function Home() {
         </section>
 
         {/* Location & Neighborhood */}
-        <section aria-labelledby="location-heading" className="border-t border-gold/10">
+        <section aria-labelledby="location-heading" className="border-t border-gold/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <div className="mb-12 text-center">
               <p className="mb-3 text-sm font-medium tracking-[0.2em] text-gold/70">LOCATION &amp; NEIGHBORHOOD</p>
@@ -512,9 +512,9 @@ export default function Home() {
               Best Hotel Near Mogadishu Airport
             </h2>
             </div>
-            <div className="rounded-2xl border border-gold/10 bg-navy-light/40 p-8 sm:p-10">
+            <div className="rounded-2xl border border-gold/20 bg-navy-light/40 p-8 sm:p-10">
               <div className="flex items-start gap-4 mb-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gold/10 text-gold">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gold/15 text-gold">
                   <MapPinIcon />
                 </div>
                 <div>
@@ -548,7 +548,7 @@ export default function Home() {
         </section>
 
         {/* About Samaan Suites */}
-        <section aria-labelledby="about-heading" className="border-t border-gold/10 bg-navy-light/20">
+        <section aria-labelledby="about-heading" className="border-t border-gold/20 bg-navy-light/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <p className="mb-3 text-center text-sm font-medium tracking-[0.2em] text-gold/70">ABOUT THE HOTEL</p>
             <h2 id="about-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">
@@ -599,7 +599,7 @@ export default function Home() {
         </section>
 
         {/* FAQ Section — 12 questions */}
-        <section aria-labelledby="faq-heading" className="border-t border-gold/10">
+        <section aria-labelledby="faq-heading" className="border-t border-gold/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <p className="mb-3 text-center text-sm font-medium tracking-[0.2em] text-gold/70">FREQUENTLY ASKED QUESTIONS</p>
             <h2 id="faq-heading" className="mb-12 text-center text-3xl font-bold text-foreground sm:text-4xl">
@@ -617,7 +617,7 @@ export default function Home() {
         </section>
 
         {/* Affordable and Comfortable Stay */}
-        <section aria-labelledby="affordable-heading" className="border-t border-gold/10">
+        <section aria-labelledby="affordable-heading" className="border-t border-gold/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <p className="mb-3 text-center text-sm font-medium tracking-[0.2em] text-gold/70">VALUE &amp; COMFORT</p>
             <h2 id="affordable-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">

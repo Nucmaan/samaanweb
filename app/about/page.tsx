@@ -45,7 +45,7 @@ export default function AboutPage() {
           </ol>
         </nav>
 
-        <header className="border-b border-gold/10 px-6 py-20 text-center">
+        <header className="border-b border-gold/20 px-6 py-20 text-center">
           <p className="mb-3 text-sm font-medium tracking-[0.2em] text-gold/70">OUR STORY</p>
           <h1 className="mb-4 text-4xl font-bold text-foreground sm:text-5xl">
             About Samaan Suites
@@ -83,7 +83,7 @@ export default function AboutPage() {
         </section>
 
         {/* Our Location */}
-        <section aria-labelledby="location-heading" className="border-t border-gold/10 bg-navy-light/20">
+        <section aria-labelledby="location-heading" className="border-t border-gold/20 bg-navy-light/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <h2 id="location-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">
               Our Location in Mogadishu
@@ -107,7 +107,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="mt-10 rounded-2xl border border-gold/10 bg-navy-light/40 p-8">
+            <div className="mt-10 rounded-2xl border border-gold/20 bg-navy-light/40 p-8">
               <h3 className="mb-4 text-lg font-semibold text-foreground">Samaan Suites Address</h3>
               <address className="not-italic space-y-2 text-foreground/60">
                 <p className="font-medium text-foreground/80">Samaan Suites</p>
@@ -125,7 +125,7 @@ export default function AboutPage() {
         </section>
 
         {/* Mission & Values */}
-        <section aria-labelledby="mission-heading" className="border-t border-gold/10">
+        <section aria-labelledby="mission-heading" className="border-t border-gold/20">
           <div className="mx-auto max-w-4xl px-6 py-24">
             <h2 id="mission-heading" className="mb-8 text-center text-3xl font-bold text-foreground sm:text-4xl">
               Why Samaan Suites Exists
