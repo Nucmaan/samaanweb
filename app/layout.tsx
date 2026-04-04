@@ -189,6 +189,34 @@ const NAV_LINKS = [
 function SiteFooter() {
   return (
     <footer className="border-t border-border bg-secondary text-foreground">
+      {/* Pre-footer CTA strip */}
+      <div className="border-b border-border">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-14 sm:flex-row lg:px-10">
+          <div>
+            <p className="font-heading text-xl font-medium text-foreground sm:text-2xl">
+              Ready to Experience Samaan Suites?
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Contact us today to reserve your luxury suite in Mogadishu.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center border border-accent bg-accent px-8 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all hover:bg-accent-dark"
+            >
+              Book Now
+            </Link>
+            <a
+              href="tel:+252614232739"
+              className="inline-flex items-center border border-border px-8 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              Call Us
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
         <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2 lg:col-span-1">
@@ -199,10 +227,11 @@ function SiteFooter() {
               A sanctuary of refined luxury in the heart of Mogadishu.
               Where timeless elegance meets modern comfort near the airport.
             </p>
+            <div className="gold-line mt-6 w-12" />
           </div>
 
           <div>
-            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.25em] text-accent">
               Explore
             </p>
             <ul className="space-y-3">
@@ -220,7 +249,7 @@ function SiteFooter() {
           </div>
 
           <div itemScope itemType="https://schema.org/Hotel">
-            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.25em] text-accent">
               Contact
             </p>
             <address className="space-y-3 text-sm not-italic text-muted-foreground">
@@ -245,7 +274,7 @@ function SiteFooter() {
           </div>
 
           <div>
-            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.25em] text-accent">
               Services
             </p>
             <ul className="space-y-3 text-sm text-muted-foreground">
@@ -258,9 +287,10 @@ function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center gap-3 border-t border-border pt-10">
-          <p className="text-center text-xs tracking-widest text-muted-foreground/50">
-            SAMAAN SUITES &middot; MOGADISHU AIRPORT AREA &middot; SOMALIA &middot; +252 61 4232739
+        <div className="mt-16 flex flex-col items-center gap-4 border-t border-border pt-10">
+          <div className="gold-line w-16" />
+          <p className="mt-2 text-center text-xs tracking-[0.25em] text-muted-foreground/50">
+            SAMAAN SUITES &middot; MOGADISHU AIRPORT AREA &middot; SOMALIA
           </p>
           <p className="text-[11px] text-muted-foreground/40">
             &copy; {new Date().getFullYear()} Samaan Suites. All rights reserved.

@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ScrollReveal, ParallaxImage } from "@/components/scroll-reveal";
+import {
+  ScrollReveal,
+  ParallaxImage,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/scroll-reveal";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { AnimatedCounter } from "@/components/animated-counter";
 
 export const metadata: Metadata = {
   title: "Samaan Suites – Luxury Hotel in Mogadishu Airport Area",
@@ -102,18 +108,95 @@ function JsonLd() {
 }
 
 const AMENITIES = [
-  { title: "Serviced Suites", desc: "60 fully furnished one & two bedroom suites across 10 floors — luxury apartments near Mogadishu Airport for short and long stays.", img: "/images/2.jpg" },
-  { title: "Fine Dining", desc: "On-site ground-floor restaurant offering quality cuisine for hotel guests, business lunches, and visitors in Mogadishu.", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
-  { title: "Conference Venue", desc: "11th-floor auditorium and meeting rooms — the premier conference venue in Mogadishu for workshops, corporate meetings, and NGO summits.", img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80" },
-  { title: "Fitness Center", desc: "Fully equipped gym available to all guests — maintain your wellness routine while staying at Samaan Suites Mogadishu.", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" },
-  { title: "24/7 Security", desc: "Dedicated CCTV control room with round-the-clock monitoring and professional security — the safest hotel in Mogadishu.", img: "https://images.unsplash.com/photo-1485230405346-71acb9518d9c?w=800&q=80" },
+  { title: "Serviced Suites", desc: "60 fully furnished one & two bedroom suites across 10 floors — luxury apartments near Mogadishu Airport for short and long stays.", img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80", span: "sm:col-span-2 sm:row-span-2" },
+  { title: "Fine Dining", desc: "On-site ground-floor restaurant offering quality cuisine for hotel guests, business lunches, and visitors in Mogadishu.", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", span: "" },
+  { title: "Conference Venue", desc: "11th-floor auditorium and meeting rooms — the premier conference venue in Mogadishu for workshops, corporate meetings, and NGO summits.", img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80", span: "" },
+  { title: "Fitness Center", desc: "Fully equipped gym available to all guests — maintain your wellness routine while staying at Samaan Suites Mogadishu.", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80", span: "" },
+  { title: "24/7 Security", desc: "Dedicated CCTV control room with round-the-clock monitoring and professional security — the safest hotel in Mogadishu.", img: "https://images.unsplash.com/photo-1485230405346-71acb9518d9c?w=800&q=80", span: "" },
+  { title: "On-site Masjid", desc: "Dedicated prayer room for guests — a thoughtful amenity reflecting our commitment to Somali hospitality and values.", img: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800&q=80", span: "" },
 ];
 
-const STATS = [
-  { value: "60", label: "Serviced Suites" },
-  { value: "10", label: "Residential Floors" },
-  { value: "2", label: "Parking Levels" },
-  { value: "11F", label: "Event Floor" },
+const EXPERIENCES = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="h-7 w-7" aria-hidden="true">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+        <circle cx="12" cy="9" r="2.5" />
+      </svg>
+    ),
+    title: "Prime Airport Location",
+    desc: "Steps from Aden Abdulle International Airport — the most convenient hotel near Mogadishu Airport.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="h-7 w-7" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
+    title: "60 Serviced Suites",
+    desc: "Luxury one-bedroom and two-bedroom suites, fully furnished for short and long stays.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="h-7 w-7" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <path d="M8 21h8M12 17v4" />
+      </svg>
+    ),
+    title: "Conference Center",
+    desc: "11th-floor auditorium and meeting rooms for workshops, summits, and corporate events.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="h-7 w-7" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    title: "24/7 Security",
+    desc: "Dedicated CCTV control room, professional security staff, and controlled building access.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="h-7 w-7" aria-hidden="true">
+        <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" />
+        <line x1="6" y1="1" x2="6" y2="4" />
+        <line x1="10" y1="1" x2="10" y2="4" />
+        <line x1="14" y1="1" x2="14" y2="4" />
+      </svg>
+    ),
+    title: "Restaurant & Dining",
+    desc: "Ground-floor restaurant offering quality cuisine for guests, meetings, and visitors.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="h-7 w-7" aria-hidden="true">
+        <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
+    title: "Built for Business & NGOs",
+    desc: "Designed for professionals, diplomats, UN staff, and international organizations in Somalia.",
+  },
+];
+
+const TESTIMONIALS = [
+  {
+    quote: "The best hotel experience in Mogadishu. World-class facilities with a level of service that rivals international luxury brands.",
+    author: "International Development Professional",
+    role: "NGO Director, East Africa",
+  },
+  {
+    quote: "Samaan Suites fills a critical gap in Mogadishu's hospitality sector. The conference facilities and security infrastructure are outstanding.",
+    author: "Diplomatic Affairs Correspondent",
+    role: "Foreign Affairs, Mogadishu",
+  },
+  {
+    quote: "Finally, a hotel in Mogadishu that meets international standards. The suites are spacious, modern, and perfect for extended stays.",
+    author: "Business Executive",
+    role: "Corporate Traveler, Somalia",
+  },
 ];
 
 export default function Home() {
@@ -124,8 +207,8 @@ export default function Home() {
         <ol><li><a href={SITE_URL}>Samaan Suites – Home</a></li></ol>
       </nav>
 
-      {/* ═══════════════ HERO — Full-screen immersive ═══════════════ */}
-      <header className="relative flex h-screen min-h-[600px] items-end overflow-hidden">
+      {/* ═══════════════ HERO ═══════════════ */}
+      <header className="grain relative flex h-screen min-h-[700px] items-end overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=85"
           alt="Samaan Suites luxury hotel exterior in Mogadishu Airport Area"
@@ -134,91 +217,116 @@ export default function Home() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-black/5" />
 
-        <div className="relative z-10 w-full px-6 pb-16 pt-32 lg:px-10">
+        <div className="relative z-10 w-full px-6 pb-20 pt-32 lg:px-10">
           <div className="mx-auto max-w-7xl">
-            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-white/50">
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.35em] text-white/40">
               Mogadishu Airport Area &middot; Somalia
             </p>
-            <h1 className="max-w-3xl font-heading text-5xl font-medium leading-[1.1] text-white sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-4xl font-heading text-5xl font-medium leading-[1.08] text-white sm:text-6xl lg:text-7xl xl:text-8xl">
               Samaan Suites
-              <span className="mt-3 block text-lg font-normal tracking-[0.2em] text-white/60 sm:text-xl">
-                Hotel in Mogadishu
-              </span>
             </h1>
+            <p className="mt-4 max-w-lg text-lg tracking-wide text-white/50 sm:text-xl">
+              Where luxury meets Mogadishu. A new chapter in Somali hospitality.
+            </p>
 
-            {/* Glassmorphism floating bar */}
-            <div className="mt-10 inline-flex flex-wrap items-center gap-6 rounded-sm border border-white/15 bg-white/10 px-8 py-4 backdrop-blur-xl">
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all hover:bg-accent-dark"
+              >
+                Book Now
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </Link>
+              <Link
+                href="/rooms"
+                className="inline-flex items-center gap-3 border border-white/20 bg-white/5 px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm transition-all hover:bg-white/10 hover:text-white"
+              >
+                Explore Rooms
+              </Link>
+            </div>
+
+            {/* Glassmorphism info bar */}
+            <div className="mt-12 inline-flex flex-wrap items-center gap-5 rounded-sm border border-white/10 bg-white/5 px-7 py-3.5 backdrop-blur-xl">
               <div className="flex items-center gap-2">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#967B4F] opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#967B4F]" />
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
                 </span>
-                <span className="text-[13px] font-medium tracking-[0.15em] text-white/80">
+                <span className="text-[12px] font-medium tracking-[0.15em] text-white/70">
                   OPENING SOON
                 </span>
               </div>
-              <span className="hidden h-4 w-px bg-white/20 sm:block" />
-              <span className="text-[13px] tracking-wide text-white/50">
+              <span className="hidden h-3 w-px bg-white/15 sm:block" />
+              <span className="text-[12px] tracking-wide text-white/40">
                 60 Luxury Suites &middot; Conference Venue &middot; Full Amenities
               </span>
-              <Link
-                href="/contact"
-                className="border border-[#967B4F] bg-[#967B4F] px-6 py-2 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-all hover:bg-transparent"
-              >
-                Reserve
-              </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="h-5 w-5 animate-scroll-hint text-white/30" aria-hidden="true">
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
           </div>
         </div>
       </header>
 
-      {/* ═══════════════ WELCOME — Brand introduction ═══════════════ */}
-      <section className="mx-auto max-w-4xl px-6 py-28 text-center lg:px-10 lg:py-36">
-        <ScrollReveal>
-          <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">
-            Welcome to Samaan Suites
-          </p>
-          <h2 className="mx-auto max-w-2xl font-heading text-3xl font-medium leading-snug text-foreground sm:text-4xl lg:text-[2.75rem]">
-            Luxury Rooms in Mogadishu
-          </h2>
-          <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-            A brand-new luxury serviced hotel near Mogadishu Airport — 60 suites, conference venue,
-            restaurant, gym, masjid &amp; 24/7 security. Designed for business travelers, NGOs,
-            diplomats, and long-stay guests in Somalia.
-          </p>
-          <address className="mt-8 flex flex-col items-center gap-1 not-italic text-sm text-muted-foreground/70">
-            <span>Mogadishu Airport Area, Mogadishu, Somalia</span>
-            <a href="tel:+252614232739" className="text-accent transition-colors hover:text-accent-dark">
-              +252 61 4232739
-            </a>
-          </address>
-        </ScrollReveal>
+      {/* ═══════════════ WELCOME ═══════════════ */}
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-5xl px-6 py-32 text-center lg:px-10 lg:py-40">
+          <ScrollReveal>
+            <div className="gold-line mx-auto mb-10 w-16" />
+            <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">
+              Welcome to Samaan Suites
+            </p>
+            <h2 className="mx-auto max-w-3xl font-heading text-3xl font-medium leading-snug text-foreground sm:text-4xl lg:text-5xl">
+              A Sanctuary of Refined Luxury in the Heart of Mogadishu
+            </h2>
+            <p className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              A brand-new luxury serviced hotel near Mogadishu Airport — 60 suites, conference venue,
+              restaurant, gym, masjid &amp; 24/7 security. Designed for business travelers, NGOs,
+              diplomats, and long-stay guests in Somalia.
+            </p>
+          </ScrollReveal>
+        </div>
       </section>
 
-      {/* ═══════════════ SUITES — Magazine asymmetric layout ═══════════════ */}
-      <section aria-labelledby="suites-heading" className="mx-auto max-w-7xl px-6 pb-28 lg:px-10">
+      {/* ═══════════════ SUITES ═══════════════ */}
+      <section aria-labelledby="suites-heading" className="mx-auto max-w-7xl px-6 pb-32 lg:px-10">
         <ScrollReveal>
-          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Accommodations</p>
-          <h2 id="suites-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl">
-            Our Suites
-          </h2>
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">Accommodations</p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 id="suites-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+              Our Suites
+            </h2>
+            <Link href="/rooms" className="link-underline text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark">
+              View all suites &rarr;
+            </Link>
+          </div>
         </ScrollReveal>
 
-        {/* Suite 1 — Image left, text right */}
         <div className="mt-16 grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <ScrollReveal className="lg:col-span-7">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=80"
               alt="Samaan Suites one-bedroom luxury suite in Mogadishu"
-              className="aspect-[4/3] w-full rounded-sm"
+              className="aspect-4/3 w-full rounded-sm"
             />
           </ScrollReveal>
           <ScrollReveal className="lg:col-span-5" delay={0.15}>
-            <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.25em] text-accent">One-Bedroom Suite</p>
-            <h3 className="font-heading text-2xl font-medium text-foreground sm:text-3xl">
-              Refined Comfort
+            <div className="inline-block border border-accent/30 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
+              Most Popular
+            </div>
+            <h3 className="mt-5 font-heading text-2xl font-medium text-foreground sm:text-3xl">
+              One-Bedroom Suite
             </h3>
             <p className="mt-5 leading-relaxed text-muted-foreground">
               Spacious one-bedroom serviced suites perfect for solo business travelers, NGO professionals,
@@ -227,18 +335,19 @@ export default function Home() {
             </p>
             <p className="mt-3 text-sm text-muted-foreground/60">3 suites per floor &middot; Floors 1–10</p>
             <Link href="/rooms" className="mt-8 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark">
-              Explore suites
+              Explore suite
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </ScrollReveal>
         </div>
 
-        {/* Suite 2 — Text left, image right */}
-        <div className="mt-24 grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="mt-28 grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <ScrollReveal className="order-2 lg:order-1 lg:col-span-5" delay={0.15}>
-            <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.25em] text-accent">Two-Bedroom Suite</p>
-            <h3 className="font-heading text-2xl font-medium text-foreground sm:text-3xl">
-              Space to Breathe
+            <div className="inline-block border border-accent/30 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
+              Family Friendly
+            </div>
+            <h3 className="mt-5 font-heading text-2xl font-medium text-foreground sm:text-3xl">
+              Two-Bedroom Suite
             </h3>
             <p className="mt-5 leading-relaxed text-muted-foreground">
               Generous two-bedroom serviced suites ideal for families, teams, and guests requiring extra space.
@@ -255,47 +364,49 @@ export default function Home() {
             <ParallaxImage
               src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80"
               alt="Samaan Suites two-bedroom luxury hotel room in Mogadishu"
-              className="aspect-[4/3] w-full rounded-sm"
+              className="aspect-4/3 w-full rounded-sm"
             />
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ═══════════════ STATS — Elegant strip ═══════════════ */}
-      <section aria-labelledby="stats-heading" className="border-y border-border bg-[#1A1A1A]">
+      {/* ═══════════════ STATS ═══════════════ */}
+      <section aria-labelledby="stats-heading" className="grain relative overflow-hidden border-y border-white/10 bg-[#111111]">
         <h2 id="stats-heading" className="sr-only">Samaan Suites Hotel Key Statistics — Rooms, Floors, Facilities</h2>
         <div className="mx-auto grid max-w-5xl grid-cols-2 sm:grid-cols-4">
-          {STATS.map((stat) => (
-            <ScrollReveal key={stat.label} className="flex flex-col items-center gap-2 py-14">
-              <span className="font-heading text-4xl font-medium text-[#967B4F] sm:text-5xl">{stat.value}</span>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-white/40">{stat.label}</span>
-            </ScrollReveal>
-          ))}
+          <AnimatedCounter value={60} label="Serviced Suites" />
+          <AnimatedCounter value={10} label="Residential Floors" />
+          <AnimatedCounter value={2} label="Parking Levels" />
+          <AnimatedCounter value={11} suffix="F" label="Event Floor" />
         </div>
       </section>
 
-      {/* ═══════════════ AMENITIES — Bento grid ═══════════════ */}
-      <section aria-labelledby="amenities-heading" className="mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-36">
+      {/* ═══════════════ AMENITIES — Dynamic bento grid ═══════════════ */}
+      <section aria-labelledby="amenities-heading" className="mx-auto max-w-7xl px-6 py-32 lg:px-10 lg:py-40">
         <ScrollReveal className="mb-16 max-w-xl">
-          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Hotel Amenities &amp; Features</p>
-          <h2 id="amenities-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl">
-            Everything Under One Roof in Mogadishu
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">Hotel Amenities &amp; Features</p>
+          <h2 id="amenities-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+            Everything Under One Roof
           </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            From fine dining and fitness to conference halls and dedicated prayer spaces —
+            Samaan Suites delivers a complete luxury experience in Mogadishu.
+          </p>
         </ScrollReveal>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {AMENITIES.map((item, i) => (
-            <ScrollReveal key={item.title} delay={i * 0.08}>
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-sm">
+            <ScrollReveal key={item.title} delay={i * 0.07} className={item.span}>
+              <div className="group relative h-full min-h-[280px] overflow-hidden rounded-sm sm:min-h-[320px]">
                 <Image
                   src={item.img}
                   alt={`${item.title} at Samaan Suites hotel in Mogadishu`}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                  sizes={i === 0 ? "(max-width:640px) 100vw, 66vw" : "(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 group-hover:from-black/90" />
+                <div className="absolute inset-0 flex flex-col justify-end p-7 sm:p-8">
                   <h3 className="font-heading text-xl font-medium text-white sm:text-2xl">{item.title}</h3>
                   <p className="mt-2 max-h-0 overflow-hidden text-sm leading-relaxed text-white/60 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
                     {item.desc}
@@ -307,97 +418,122 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ WHY CHOOSE — Clean list ═══════════════ */}
-      <section aria-labelledby="why-heading" className="border-t border-border bg-secondary/50">
-        <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-36">
-          <div className="grid gap-16 lg:grid-cols-2">
-            <ScrollReveal>
-              <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Why Samaan Suites</p>
-              <h2 id="why-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl">
-                Why Choose Samaan Suites — The Best Hotel in Mogadishu
-              </h2>
-              <p className="mt-6 leading-relaxed text-muted-foreground">
-                Samaan Suites Mogadishu combines security, luxury, and functionality.
-                Designed for discerning travelers who expect world-class hospitality in
-                the heart of Somalia.
-              </p>
-            </ScrollReveal>
-            <div className="space-y-6">
-              {[
-                { t: "Prime Airport Location", d: "Steps from Aden Abdulle International Airport — the most convenient hotel near Mogadishu Airport for arriving and departing travelers." },
-                { t: "60 Fully Serviced Suites", d: "One-bedroom and two-bedroom suites, all furnished as luxury apartments for short-term or long-term stays in Mogadishu." },
-                { t: "11th-Floor Conference Center", d: "Host conferences, workshops, corporate meetings, and large-scale events in Mogadishu's premier auditorium and meeting rooms." },
-                { t: "24/7 CCTV & Security", d: "Dedicated security control room, CCTV monitoring, and secure access — one of the safest hotels in Mogadishu, Somalia." },
-                { t: "Full Hotel Amenities", d: "Restaurant, gym, masjid, laundry, lobby, reception, and two elevators — everything a world-class hotel in Mogadishu should offer." },
-                { t: "Built for Business & NGOs", d: "Specifically designed for business travelers, NGO professionals, UN staff, diplomats, and international organizations operating in Somalia." },
-              ].map((item, i) => (
-                <ScrollReveal key={item.t} delay={i * 0.06}>
-                  <div className="flex gap-4">
-                    <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-[10px] font-semibold text-accent">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3 className="font-medium text-foreground">{item.t}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.d}</p>
-                    </div>
+      {/* ═══════════════ EXPERIENCE FEATURES ═══════════════ */}
+      <section aria-labelledby="experience-heading" className="border-y border-border bg-secondary/50">
+        <div className="mx-auto max-w-7xl px-6 py-32 lg:px-10 lg:py-40">
+          <ScrollReveal className="mb-16 text-center">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">The Samaan Experience</p>
+            <h2 id="experience-heading" className="mx-auto max-w-2xl font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+              Why Choose Samaan Suites
+            </h2>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+            {EXPERIENCES.map((item) => (
+              <StaggerItem key={item.title}>
+                <div className="group rounded-sm border border-border bg-card p-8 transition-all duration-500 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+                  <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full border border-border text-accent transition-colors duration-500 group-hover:border-accent/40 group-hover:bg-accent/5">
+                    {item.icon}
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                  <h3 className="font-heading text-lg font-medium text-foreground">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ═══════════════ TESTIMONIALS ═══════════════ */}
+      <section aria-labelledby="testimonials-heading" className="mx-auto max-w-7xl px-6 py-32 lg:px-10 lg:py-40">
+        <ScrollReveal className="mb-16 text-center">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">Guest Voices</p>
+          <h2 id="testimonials-heading" className="mx-auto max-w-2xl font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+            What People Are Saying
+          </h2>
+        </ScrollReveal>
+
+        <StaggerContainer className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
+          {TESTIMONIALS.map((item) => (
+            <StaggerItem key={item.author}>
+              <div className="flex h-full flex-col justify-between rounded-sm border border-border bg-card p-8 lg:p-10">
+                <div>
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="mb-6 h-8 w-8 text-accent/30" aria-hidden="true">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="font-heading text-lg leading-relaxed text-foreground italic">
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
+                </div>
+                <div className="mt-8 border-t border-border pt-6">
+                  <p className="text-sm font-medium text-foreground">{item.author}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{item.role}</p>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </section>
+
+      {/* ═══════════════ LOCATION ═══════════════ */}
+      <section aria-labelledby="location-heading" className="border-t border-border bg-secondary/30">
+        <div className="mx-auto max-w-7xl px-6 py-32 lg:px-10 lg:py-40">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <ScrollReveal>
+              <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">Location</p>
+              <h2 id="location-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+                Best Hotel Near Mogadishu Airport
+              </h2>
+              <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
+                <p>
+                  Samaan Suites is strategically located in the <strong className="text-foreground">Mogadishu Airport Area</strong>,
+                  one of the most accessible and well-connected neighborhoods in Mogadishu, Somalia. The hotel sits near{" "}
+                  <strong className="text-foreground">Aden Abdulle International Airport (MGQ)</strong>, making it the ideal choice
+                  for travelers who need a hotel near Mogadishu Airport.
+                </p>
+                <p>
+                  The airport area is a hub for international organizations, NGOs, UN agencies,
+                  embassies, and government institutions operating in Somalia — making Samaan Suites the natural base
+                  for professionals, diplomats, and teams.
+                </p>
+              </div>
+              <div className="mt-8 border-l-2 border-accent/30 pl-5">
+                <address className="not-italic">
+                  <p className="font-medium text-foreground">Samaan Suites</p>
+                  <p className="text-sm text-muted-foreground">Mogadishu Airport Area, Mogadishu, Somalia</p>
+                  <a href="tel:+252614232739" className="mt-1 block text-sm text-accent transition-colors hover:text-accent-dark">+252 61 4232739</a>
+                </address>
+              </div>
+              <Link
+                href="/contact"
+                className="mt-10 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark"
+              >
+                Get directions
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </ScrollReveal>
+            <ScrollReveal delay={0.15}>
+              <ParallaxImage
+                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80"
+                alt="Samaan Suites hotel location near Mogadishu Airport"
+                className="aspect-4/3 w-full rounded-sm"
+              />
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════ LOCATION ═══════════════ */}
-      <section aria-labelledby="location-heading" className="mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-36">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <ScrollReveal>
-            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Location</p>
-            <h2 id="location-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl">
-              Best Hotel Near Mogadishu Airport
-            </h2>
-            <div className="mt-8 space-y-5 leading-relaxed text-muted-foreground">
-              <p>
-                Samaan Suites is strategically located in the <strong className="text-foreground">Mogadishu Airport Area</strong>,
-                one of the most accessible and well-connected neighborhoods in Mogadishu, Somalia. The hotel sits near{" "}
-                <strong className="text-foreground">Aden Abdulle International Airport (MGQ)</strong>, making it the ideal choice
-                for travelers who need a hotel near Mogadishu Airport.
-              </p>
-              <p>
-                The airport area is a hub for international organizations, NGOs, UN agencies,
-                embassies, and government institutions operating in Somalia — making Samaan Suites the natural base
-                for professionals, diplomats, and teams.
-              </p>
-            </div>
-            <div className="mt-8 border-l-2 border-accent/30 pl-5">
-              <address className="not-italic">
-                <p className="font-medium text-foreground">Samaan Suites</p>
-                <p className="text-sm text-muted-foreground">Mogadishu Airport Area, Mogadishu, Somalia</p>
-                <a href="tel:+252614232739" className="mt-1 block text-sm text-accent">+252 61 4232739</a>
-              </address>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <ParallaxImage
-              src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80"
-              alt="Samaan Suites hotel location near Mogadishu Airport"
-              className="aspect-[4/3] w-full rounded-sm"
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* ═══════════════ ABOUT ═══════════════ */}
-      <section aria-labelledby="about-heading" className="border-t border-border bg-secondary/50">
-        <div className="mx-auto max-w-4xl px-6 py-28 lg:px-10 lg:py-36">
+      <section aria-labelledby="about-heading" className="border-t border-border">
+        <div className="mx-auto max-w-4xl px-6 py-32 lg:px-10 lg:py-40">
           <ScrollReveal className="text-center">
-            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">About</p>
-            <h2 id="about-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl">
-              About Samaan Suites — Luxury Serviced Hotel Mogadishu
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">About</p>
+            <h2 id="about-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+              About Samaan Suites
             </h2>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="mt-10 space-y-5 leading-relaxed text-muted-foreground">
+            <div className="mt-10 space-y-5 text-center text-base leading-relaxed text-muted-foreground lg:text-lg">
               <p>
                 <strong className="text-foreground">Samaan Suites</strong> is a brand-new luxury serviced hotel located
                 in the <strong className="text-foreground">Mogadishu Airport Area</strong>, Banaadir Region, Somalia.
@@ -410,50 +546,67 @@ export default function Home() {
                 a professional reception and lobby area, laundry services, and a dedicated CCTV security control room
                 ensuring 24/7 safety. Two basement levels provide secure parking and independent power infrastructure.
               </p>
-              <p>
-                The 11th floor is entirely dedicated to events and business functions, featuring a multi-purpose
-                auditorium and conference hall — the ideal <strong className="text-foreground">conference venue in
-                Mogadishu</strong> for corporate meetings, workshops, and NGO summits.
-              </p>
             </div>
+          </ScrollReveal>
+          <ScrollReveal className="mt-12 text-center" delay={0.1}>
+            <Link
+              href="/about"
+              className="link-underline text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark"
+            >
+              Read our full story &rarr;
+            </Link>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ═══════════════ FAQ — Accordion ═══════════════ */}
-      <section aria-labelledby="faq-heading" className="mx-auto max-w-3xl px-6 py-28 lg:px-10 lg:py-36">
-        <ScrollReveal className="mb-12 text-center">
-          <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">FAQ</p>
-          <h2 id="faq-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl">
-            Frequently Asked Questions
-          </h2>
-        </ScrollReveal>
-        <ScrollReveal>
-          <FaqAccordion items={ALL_FAQS} />
-        </ScrollReveal>
-      </section>
-
-      {/* ═══════════════ VALUE — SEO content ═══════════════ */}
-      <section aria-labelledby="value-heading" className="border-t border-border bg-secondary/50">
-        <div className="mx-auto max-w-4xl px-6 py-28 lg:px-10 lg:py-36">
-          <ScrollReveal className="text-center">
-            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Value &amp; Comfort</p>
-            <h2 id="value-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl">
-              Affordable and Comfortable Stay in Mogadishu
+      {/* ═══════════════ FAQ ═══════════════ */}
+      <section aria-labelledby="faq-heading" className="border-t border-border bg-secondary/30">
+        <div className="mx-auto max-w-3xl px-6 py-32 lg:px-10 lg:py-40">
+          <ScrollReveal className="mb-14 text-center">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">FAQ</p>
+            <h2 id="faq-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+              Frequently Asked Questions
             </h2>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="mt-10 space-y-5 leading-relaxed text-muted-foreground">
-              <p>
-                Finding a hotel in Mogadishu that combines quality, comfort, and value has never been easier.
-                Samaan Suites Mogadishu delivers an exceptional hospitality experience. Every suite is fully
-                furnished and serviced, offering guests all the comforts of a luxury apartment at competitive rates.
-              </p>
-              <p>
-                As an <strong className="text-foreground">airport hotel in Somalia</strong>, Samaan Suites is perfectly positioned
-                for travelers arriving at or departing from Aden Abdulle International Airport. Enjoy the convenience of a premium hotel
-                near Mogadishu Airport combined with the affordability and warmth of Somali hospitality.
-              </p>
+            <FaqAccordion items={ALL_FAQS} />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══════════════ CTA BANNER ═══════════════ */}
+      <section className="grain relative overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&q=80"
+          alt="Samaan Suites luxury hotel in Mogadishu"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-28 text-center lg:py-36">
+          <ScrollReveal>
+            <div className="gold-line mx-auto mb-10 w-16" />
+            <h2 className="font-heading text-3xl font-medium text-white sm:text-4xl lg:text-5xl">
+              Begin Your Mogadishu Experience
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/60 lg:text-lg">
+              Whether you are planning a business trip, an NGO deployment, or a personal visit — Samaan Suites
+              is ready to welcome you to the best hotel in Mogadishu.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 border border-accent bg-accent px-9 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all hover:bg-accent-dark"
+              >
+                Reserve Your Stay
+              </Link>
+              <a
+                href="tel:+252614232739"
+                className="inline-flex items-center gap-3 border border-white/20 bg-white/5 px-9 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm transition-all hover:bg-white/10"
+              >
+                Call +252 61 4232739
+              </a>
             </div>
           </ScrollReveal>
         </div>

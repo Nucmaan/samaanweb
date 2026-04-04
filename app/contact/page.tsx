@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ScrollReveal } from "@/components/scroll-reveal";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal";
 
 const SITE_URL = "https://www.samaansuites.com";
 
@@ -54,7 +54,6 @@ function JsonLdContact() {
       { "@type": "ListItem", position: 2, name: "Contact", item: `${SITE_URL}/contact` },
     ],
   };
-
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "Hotel",
@@ -68,11 +67,7 @@ function JsonLdContact() {
       addressRegion: "Banaadir",
       addressCountry: "SO",
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 2.0469,
-      longitude: 45.3182,
-    },
+    geo: { "@type": "GeoCoordinates", latitude: 2.0469, longitude: 45.3182 },
     hasMap: "https://www.google.com/maps?q=2.0469,45.3182",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -81,7 +76,6 @@ function JsonLdContact() {
       closes: "23:59",
     },
   };
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -89,6 +83,40 @@ function JsonLdContact() {
     </>
   );
 }
+
+const CONTACT_INFO = [
+  {
+    icon: <PhoneIcon />,
+    label: "Phone",
+    content: (
+      <a href="tel:+252614232739" className="font-heading text-xl text-foreground transition-colors hover:text-accent md:text-2xl">
+        +252 61 4232739
+      </a>
+    ),
+    note: "Available 24/7 for reservations and enquiries.",
+  },
+  {
+    icon: <MapPinIcon />,
+    label: "Address",
+    content: (
+      <address className="not-italic">
+        <p className="font-heading text-xl text-foreground md:text-2xl">Samaan Suites</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+          Mogadishu Airport Area<br />Mogadishu, Somalia
+        </p>
+      </address>
+    ),
+    note: null,
+  },
+  {
+    icon: <ClockIcon />,
+    label: "Hours",
+    content: (
+      <p className="font-heading text-xl text-foreground md:text-2xl">Open Around the Clock</p>
+    ),
+    note: "Check-in 2:00 PM · Check-out 12:00 PM",
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -98,14 +126,13 @@ export default function ContactPage() {
       <div className="bg-background text-foreground">
         <nav aria-label="Breadcrumb" className="sr-only">
           <ol>
-            <li>
-              <Link href="/">Samaan Suites – Home</Link>
-            </li>
+            <li><Link href="/">Samaan Suites – Home</Link></li>
             <li>Contact</li>
           </ol>
         </nav>
 
-        <header className="relative flex min-h-[60vh] items-end overflow-hidden">
+        {/* Hero */}
+        <header className="grain relative flex min-h-[65vh] items-end overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&q=85"
             alt="Samaan Suites hotel lobby and reception in Mogadishu"
@@ -114,89 +141,55 @@ export default function ContactPage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-black/20" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/30 to-black/10" />
 
-          <div className="relative z-10 w-full px-6 pb-16 pt-32 lg:px-10">
-            <div className="mx-auto max-w-7xl text-center">
-              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.3em] text-white/50">Get in touch</p>
-              <h1 className="font-heading text-4xl font-normal tracking-tight text-white sm:text-5xl md:text-[3.25rem] md:leading-[1.1]">
+          <div className="relative z-10 w-full px-6 pb-20 pt-32 lg:px-10">
+            <div className="mx-auto max-w-7xl">
+              <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.35em] text-white/40">Get in Touch</p>
+              <h1 className="max-w-2xl font-heading text-4xl font-medium leading-[1.1] text-white sm:text-5xl lg:text-6xl">
                 Contact Samaan Suites
               </h1>
-              <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-white/60 md:text-lg">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/50">
                 Reach out for room enquiries, conference bookings, or any questions about your stay in Mogadishu.
               </p>
             </div>
           </div>
         </header>
 
-        <section aria-labelledby="contact-info-heading" className="px-6 py-24 md:py-32">
-          <h2 id="contact-info-heading" className="sr-only">
-            Contact Information
-          </h2>
-          <div className="mx-auto grid max-w-6xl gap-px bg-border md:grid-cols-3 md:gap-0 md:border md:border-border">
-            <ScrollReveal className="bg-background p-10 md:border-r md:border-border md:p-14">
-              <div className="mb-8 flex justify-center md:justify-start">
-                <span className="inline-flex h-12 w-12 items-center justify-center border border-border text-accent">
-                  <PhoneIcon />
-                </span>
-              </div>
-              <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Phone</p>
-              <a
-                href="tel:+252614232739"
-                className="font-heading text-xl text-foreground transition-colors hover:text-accent md:text-2xl"
-              >
-                +252 61 4232739
-              </a>
-              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                Available 24/7 for reservations and enquiries.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.08} className="bg-background p-10 md:border-r md:border-border md:p-14">
-              <div className="mb-8 flex justify-center md:justify-start">
-                <span className="inline-flex h-12 w-12 items-center justify-center border border-border text-accent">
-                  <MapPinIcon />
-                </span>
-              </div>
-              <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Address</p>
-              <address className="not-italic">
-                <p className="font-heading text-xl text-foreground md:text-2xl">Samaan Suites</p>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  Mogadishu Airport Area
-                  <br />
-                  Mogadishu, Somalia
-                </p>
-              </address>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.16} className="bg-background p-10 md:p-14">
-              <div className="mb-8 flex justify-center md:justify-start">
-                <span className="inline-flex h-12 w-12 items-center justify-center border border-border text-accent">
-                  <ClockIcon />
-                </span>
-              </div>
-              <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Hours</p>
-              <p className="font-heading text-xl text-foreground md:text-2xl">Open around the clock</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                24 hours, seven days a week.
-              </p>
-              <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
-                Check-in 2:00 PM · Check-out 12:00 PM
-              </p>
-            </ScrollReveal>
-          </div>
+        {/* Contact cards */}
+        <section aria-labelledby="contact-info-heading" className="px-6 py-28 md:py-36">
+          <h2 id="contact-info-heading" className="sr-only">Contact Information</h2>
+          <StaggerContainer className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3" staggerDelay={0.08}>
+            {CONTACT_INFO.map((item) => (
+              <StaggerItem key={item.label}>
+                <div className="group h-full rounded-sm border border-border bg-card p-10 transition-all duration-500 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 md:p-12">
+                  <div className="mb-8">
+                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-border text-accent transition-colors group-hover:border-accent/30 group-hover:bg-accent/5">
+                      {item.icon}
+                    </span>
+                  </div>
+                  <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">{item.label}</p>
+                  {item.content}
+                  {item.note && (
+                    <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{item.note}</p>
+                  )}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </section>
 
-        <section aria-labelledby="map-heading" className="border-t border-border bg-secondary/40 px-6 py-24 md:py-32">
+        {/* Map */}
+        <section aria-labelledby="map-heading" className="border-t border-border bg-secondary/30 px-6 py-28 md:py-36">
           <div className="mx-auto max-w-5xl">
-            <ScrollReveal className="mb-12 text-center md:mb-16">
-              <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Location</p>
-              <h2 id="map-heading" className="font-heading text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
-                Find Samaan Suites on the Map
+            <ScrollReveal className="mb-14 text-center">
+              <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">Location</p>
+              <h2 id="map-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+                Find Us on the Map
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="overflow-hidden rounded-2xl border border-border shadow-sm">
+              <div className="overflow-hidden rounded-sm border border-border shadow-sm">
                 <iframe
                   title="Samaan Suites Mogadishu location on Google Maps"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.317323538119!2d45.305231875216776!3d2.028805097952938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3d58410056f1e2a5%3A0xd863c025990adcb!2sSamaan%20Suites!5e0!3m2!1sen!2sso!4v1774857450463!5m2!1sen!2sso"
@@ -210,21 +203,19 @@ export default function ContactPage() {
                 />
               </div>
               <p className="mt-6 text-center text-sm text-muted-foreground">
-                Samaan Suites · Mogadishu Airport Area, Mogadishu, Somalia · Near Aden Abdulle International Airport (MGQ)
+                Samaan Suites &middot; Mogadishu Airport Area, Mogadishu, Somalia &middot; Near Aden Abdulle International Airport (MGQ)
               </p>
             </ScrollReveal>
           </div>
         </section>
 
-        <section aria-labelledby="contact-seo-heading" className="border-t border-border px-6 py-24 md:py-32">
+        {/* Directions content */}
+        <section aria-labelledby="contact-seo-heading" className="border-t border-border px-6 py-28 md:py-36">
           <div className="mx-auto max-w-3xl">
-            <ScrollReveal className="mb-14 text-center md:mb-16">
-              <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.3em] text-accent">Arriving</p>
-              <h2
-                id="contact-seo-heading"
-                className="font-heading text-3xl font-normal tracking-tight text-foreground sm:text-4xl"
-              >
-                How to Reach Samaan Suites in Mogadishu
+            <ScrollReveal className="mb-14 text-center">
+              <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-accent">Arriving</p>
+              <h2 id="contact-seo-heading" className="font-heading text-3xl font-medium text-foreground sm:text-4xl lg:text-5xl">
+                How to Reach Samaan Suites
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.08}>
