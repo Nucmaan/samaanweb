@@ -344,8 +344,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/icon-192.png" />
+        <link rel="icon" href="/icon" sizes="192x192" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon" />
       </head>
       <body className="min-h-full flex flex-col antialiased">
         <ThemeProvider>

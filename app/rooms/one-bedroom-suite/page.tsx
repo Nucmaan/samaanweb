@@ -50,7 +50,7 @@ const SUITE_FEATURES = [
 const GALLERY = [
   { src: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80", alt: "One-bedroom suite bedroom at Samaan Suites Mogadishu" },
   { src: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80", alt: "Living area of one-bedroom suite at Samaan Suites" },
-  { src: "https://images.unsplash.com/photo-1590490360182-c33d7d9d4e1b?w=900&q=80", alt: "Modern bathroom in one-bedroom suite Mogadishu" },
+  { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80", alt: "Modern bathroom in one-bedroom suite Mogadishu" },
 ];
 
 function JsonLd() {

@@ -51,7 +51,7 @@ const ROOM_AMENITIES = [
 const GALLERY_IMAGES = [
   { src: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80", alt: "Luxury suite bedroom at Samaan Suites Mogadishu" },
   { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", alt: "Spacious living area in Samaan Suites" },
-  { src: "https://images.unsplash.com/photo-1590490360182-c33d7d9d4e1b?w=800&q=80", alt: "Modern bathroom in Samaan Suites Mogadishu" },
+  { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Modern bathroom in Samaan Suites Mogadishu" },
   { src: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80", alt: "Suite interior details at Samaan Suites" },
 ];
 
