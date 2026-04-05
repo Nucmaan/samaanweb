@@ -278,11 +278,24 @@ function SiteFooter() {
               Services
             </p>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>Hotel in Mogadishu</li>
-              <li>Serviced Apartments</li>
-              <li>Conference Venue</li>
-              <li>NGO Accommodation</li>
-              <li>Airport Hotel Somalia</li>
+              <li>
+                <Link href="/rooms" className="transition-colors hover:text-accent">Hotel Suites</Link>
+              </li>
+              <li>
+                <Link href="/rooms/one-bedroom-suite" className="transition-colors hover:text-accent">One-Bedroom Suite</Link>
+              </li>
+              <li>
+                <Link href="/rooms/two-bedroom-suite" className="transition-colors hover:text-accent">Two-Bedroom Suite</Link>
+              </li>
+              <li>
+                <Link href="/conference" className="transition-colors hover:text-accent">Conference Venue</Link>
+              </li>
+              <li>
+                <Link href="/ngo-accommodation-mogadishu" className="transition-colors hover:text-accent">NGO Accommodation</Link>
+              </li>
+              <li>
+                <Link href="/hotel-near-mogadishu-airport" className="transition-colors hover:text-accent">Airport Hotel</Link>
+              </li>
             </ul>
           </div>
         </div>

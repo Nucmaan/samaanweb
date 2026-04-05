@@ -149,12 +149,20 @@ export default function RoomsPage() {
                   diplomats. Each suite at Samaan Suites Mogadishu features a private bedroom, living area, and modern
                   amenities — offering all the comforts of a luxury apartment near Mogadishu Airport.
                 </p>
-                <Link
-                  href="/contact"
-                  className="mt-8 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark"
-                >
-                  Enquire now <span aria-hidden="true">&rarr;</span>
-                </Link>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/rooms/one-bedroom-suite"
+                    className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark"
+                  >
+                    View full details <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-accent"
+                  >
+                    Enquire now
+                  </Link>
+                </div>
               </ScrollReveal>
             </div>
 
@@ -172,12 +180,20 @@ export default function RoomsPage() {
                   These Mogadishu hotel rooms provide two private bedrooms, a shared living area, and premium
                   furnishings — the best choice for extended stays and group accommodation in Mogadishu.
                 </p>
-                <Link
-                  href="/contact"
-                  className="mt-8 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark"
-                >
-                  Enquire now <span aria-hidden="true">&rarr;</span>
-                </Link>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/rooms/two-bedroom-suite"
+                    className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.18em] text-accent transition-colors hover:text-accent-dark"
+                  >
+                    View full details <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-accent"
+                  >
+                    Enquire now
+                  </Link>
+                </div>
               </ScrollReveal>
               <ScrollReveal className="order-1 lg:order-2 lg:col-span-7">
                 <ParallaxImage
